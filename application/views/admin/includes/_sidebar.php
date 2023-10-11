@@ -23,6 +23,7 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
         <a href="#" class="d-block"><?= ucwords($this->session->userdata('username')); ?></a>
       </div>
     </div>
+                     
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">

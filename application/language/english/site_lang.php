@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$lang['complaints_list'] = "Complaint Listing";
+$lang['add_complaint'] = "Add New Complaints";
+$lang['complaints'] = "Complaints";
+
+
 $lang['contact'] = "Contact";
 $lang['logout'] = "Logout";
 $lang['search'] = "Search";
@@ -33,9 +38,9 @@ $lang['dashboard']                               = "Dashboard";
 	$lang['dashboard_v1']                        = "Dashboard v1";
 	$lang['dashboard_v2']                        = "Dashboard v2";
 	$lang['dashboard_v3']                        = "Dashboard v3";
-$lang['admin']  								 = "Admin";
-	$lang['admin_list']                               = "Admin List";
-	$lang['add_new_admin']                               = "Add New Admin";
+$lang['admin']  								 = "Users";
+	$lang['admin_list']                               = "User List";
+	$lang['add_new_admin']                               = "Add New User";
 $lang['profile']                               = "Profile";
 	$lang['view_profile']                               = "View Profile";
 	$lang['change_password']                               = "Change Password";
@@ -45,7 +50,7 @@ $lang['users']                               = "Users";
 	$lang['users_list']                               = "Users List";
 	$lang['add_new_user']                               = "Add New User";
 $lang['activity_log']                               = "Activity Log";
-$lang['settings']                               = "Settings";
+$lang['settings']                               = "Site Settings";
 	$lang['general_settings']                               = "General Settings";
 	$lang['email_template_settings']                               = "Email Template Settings";
 $lang['codeigniter_examples']                               = "Codeingiter Examples";
