@@ -71,6 +71,7 @@
                             <div class="form-group">
                               <label for="loction" class=" control-label">Location</label>
                               <select class="form-control select2 eg-select2" id="loction" data-toggle="tooltip" placeholder="Select Location" required="true">
+                                    <option value="" ></option>
                                     <option value="HQ" >HQ</option>
                                     <option value="Acc">Acc</option>
                                     <option value="Out Stations">Out Stations</option>
@@ -82,10 +83,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                               <label for="subloction" class=" control-label">Sub Location</label>
-                              <select class="form-control select2 eg-select2" id="subloction" data-toggle="tooltip" placeholder="Select Sub Location" required="true">
-                                    <option value="HQ" >HQ</option>
-                                    <option value="Acc">Acc</option>
-                                    <option value="Out Stations">Out Stations</option>
+                              <select disabled class="form-control select2 eg-select2" id="subloction" data-toggle="tooltip" placeholder="Select Sub Location" required="true">
+                                   
                                   
                                 </select>
                             </div>
@@ -101,14 +100,35 @@
                   <div class="col-md-6">
                             <div class="form-group">
                               <label for="subloction2" class=" control-label">Sub Location 2</label>
-                              <select class="form-control select2 eg-select2" id="subloction2" data-toggle="tooltip" placeholder="Select Sub Location 2" required="true">
-                                    <option value="HQ" >HQ</option>
-                                    <option value="Acc">Acc</option>
-                                    <option value="Out Stations">Out Stations</option>
+                              <select disabled class="form-control select2 eg-select2" id="subloction2" data-toggle="tooltip" placeholder="Select Sub Location 2" required="true">
+                                   
                                   
                                 </select>
                             </div>
                         </div>
+                  </div>
+
+                  <div class="row">
+                
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="loctiondetails" class=" control-label">Locations Details</label>
+                              <textarea  name="loctiondetails" rows="2" class="form-control" id="loctiondetails" ></textarea>
+
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="workorderdetails" class=" control-label">Work Order Details</label>
+                                
+                              <textarea  name="workorderdetails" rows="2" class="form-control" id="workorderdetails" ></textarea>
+                                </select>
+                            </div>
+                        </div>
+
+                        
+
                   </div>
               
                   <hr>
@@ -120,26 +140,36 @@
                 <br>
 
                 <div class="row">
-                
+          
                     <div class="col-md-6">
                         <div class="form-group">
                           <label for="comstatus" class=" control-label">Status</label>
                           <select class="form-control select2 eg-select2" id="comstatus" data-toggle="tooltip" placeholder="Status" required="true">
-                                <option value="HQ" >HQ</option>
-                                <option value="Acc">Acc</option>
-                                <option value="Out Stations">Out Stations</option>
+                                <option value="open" >Open</option>
+                                <option value="inprogress" >In Progress</option>
+                                <option value="resolved">Resolved</option>
+                                <option value="closed">Closed</option>
+                                <option value="onhold">On Hold</option>
+                                <option value="reopened">Reopened</option>
+                                <option value="pendingreview">Pending Review</option>
                               
                             </select>
                         </div>
                     </div>
-                
+                  
                     <div class="col-md-6">
                         <div class="form-group">
-                          <label for="comtype" class=" control-label">Type</label>
+                          <label for="comtype" class=" control-label">Complaint Type</label>
                           <select class="form-control select2 eg-select2" id="comtype" data-toggle="tooltip" placeholder="Type" required="true">
-                                <option value="HQ" >HQ</option>
-                                <option value="Acc">Acc</option>
-                                <option value="Out Stations">Out Stations</option>
+                                <option value="HVAC" >HVAC</option>
+                                <option value="CIVIl">CIVIl</option>
+                                <option value="FIRE">FIRE</option>
+                                <option value="PUMPS">PUMPS</option>
+                                <option value="ELECTRICAL">ELECTRICAL</option>
+                                <option value="MECHANICAL">MECHANICAL</option>
+                                <option value="CARPANTER">CARPANTER</option>
+                                <option value="PLUMBING">PLUMBING</option>
+                                <option value="LIFT">LIFT</option>
                               
                             </select>
                         </div>
@@ -151,14 +181,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                           <label for="date" class=" control-label">Date</label>
-                          <input type="date" name="date" class="form-control" id="date" placeholder="">
+                          <input type="datetime-local"  value="<?php echo date('Y-m-d\TH:i'); ?>" name="date" class="form-control" id="date" placeholder="">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                          <label for="time" class=" control-label">Time</label>
-                          <input type="time" name="time" class="form-control" id="time" placeholder="">
+                          <label for="tag" class=" control-label">TAG</label>
+                          <input type="text" name="tag" class="form-control" id="tag" placeholder="">
                         </div>
                     </div>
                 
@@ -166,7 +196,7 @@
                  </div>
                  <div class="row">
                 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                           <label for="issuepicture" class=" control-label">Upload Picture</label>
                           <div class="custom-file">
@@ -177,12 +207,7 @@
                           </div>
                           
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="tag" class=" control-label">TAG</label>
-                          <input type="text" name="tag" class="form-control" id="tag" placeholder="">
-                        </div>
-                    </div>
+                
                     
                     
                  </div>
@@ -220,30 +245,8 @@
 
   <script>
   
-   listofHQ['sublocationHQ']['Building-1'] = 'Building-1';
-   listofHQ['sublocationHQ']['Building-2'] = 'Building-2';
-   listofHQ['sublocationHQ']['Building-3'] = 'Building-3';
-   listofHQ['sublocationHQ']['Building-4'] = 'Building-4';
-   listofHQ['sublocationHQ']['Building-5'] = 'Building-5';
-
-   listofHQ['sublocation2']['groundfloor'] = 'Ground Floor';
-   listofHQ['sublocation2']['1stfloor'] = '1st Floor';
-   listofHQ['sublocation2']['2ndfloor'] = '2nd Floor';
-   listofHQ['sublocation2']['3rdfloor'] = '3rd Floor';
-   listofHQ['sublocation2']['roof'] = 'Roof';
-
-   listofHQ['complainttype']['HVAC'] = 'HVAC';
-   listofHQ['complainttype']['CIVIl'] = 'CIVIl';
-   listofHQ['complainttype']['FIRE'] = 'FIRE';
-   listofHQ['complainttype']['PUMPS'] = 'PUMPS';
-   listofHQ['complainttype']['ELECTRICAL'] = 'ELECTRICAL';
-   listofHQ['complainttype']['MECHANICAL'] = 'MECHANICAL';
-   listofHQ['complainttype']['CARPANTER'] = 'CARPANTER';
-   listofHQ['complainttype']['PLUMBING'] = 'PLUMBING';
-   listofHQ['complainttype']['LIFT'] = 'LIFT';
-  
-
    var listofHQ = {
+    
     sublocationOurstation: {
         zabeelhvac: 'ZABEEL HVAC',
         alminacivil: 'AL MINA CIVIl',
@@ -269,7 +272,6 @@
         hatta: 'HATTA',
         qudra: 'QUDRA'
     },
-
     sublocationAcc: {
         blockA: 'Block-A',
         blockB: 'Block-B',
@@ -277,17 +279,104 @@
         blockD: 'Block-D',
         blockE: 'Block-E'
     },
-
-    sublocationHQ: {
+   sublocationHQ: {
         building1: 'Building-1',
         building2: 'Building-2',
         building3: 'Building-3',
         building4: 'Building-4',
         building5: 'Building-5'
+    },
+    sublocation2: {
+        groundfloor: 'Ground Floor',
+        firstfloor: '1st Floor',
+        secondndfloor: '2nd Floor',
+        thirdfloor: '3rd Floor',
+        roof: 'Roof'
+    },
+    complainttype:{
+        HVAC: 'HVAC',
+        CIVIl: 'CIVIl',
+        FIRE: 'FIRE',
+        PUMPS: 'PUMPS',
+        ELECTRICAL: 'ELECTRICAL',
+        MECHANICAL: 'MECHANICAL',
+        CARPANTER: 'CARPANTER',
+        PLUMBING: 'PLUMBING',
+        LIFT: 'LIFT'
     }
 };
   
   
+jQuery(document).ready(function () {
+
+jQuery("#loction").on("change", function () {
+
+
+  var selectedfiledID = jQuery(this).val();
+  jQuery("#subloction").empty();
+  jQuery("#subloction2").empty();
+
+
+  if(selectedfiledID == "HQ"){
+
+
+    jQuery.each(listofHQ.sublocationHQ, function (index, value) {
+        var option = new Option(value, index, false, false);
+        jQuery("#subloction").append(option);
+    });
+
+    jQuery.each(listofHQ.sublocation2, function (index, value) {
+        var option = new Option(value, index, false, false);
+        console.log(option);
+        jQuery("#subloction2").append(option);
+    });
+
+
+    jQuery("#subloction").removeAttr("disabled");
+    jQuery("#subloction2").removeAttr("disabled");
+
+
+  }else if(selectedfiledID == "Out Stations"){
+
+    
+    jQuery.each(listofHQ.sublocationOurstation, function (index, value) {
+        var option = new Option(value, index, false, false);
+        jQuery("#subloction").append(option);
+
+    });
+
+    jQuery("#subloction").removeAttr("disabled");
+    jQuery("#subloction2").removeAttr("required");
+
+
+  }else{
+
   
+    jQuery.each(listofHQ.sublocationAcc, function (index, value) {
+        var option = new Option(value, index, false, false);
+        jQuery("#subloction").append(option);
+    });
+      jQuery.each(listofHQ.sublocation2, function (index, value) {
+        var option = new Option(value, index, false, false);
+        console.log(option);
+        jQuery("#subloction2").append(option);
+    });
+
+    jQuery("#subloction").removeAttr("disabled");
+    jQuery("#subloction2").removeAttr("disabled");
+
+
+
+  }
+
+
+  jQuery("#subloction").removeAttr("disabled");
+  jQuery("#subloction2").removeAttr("disabled");
+
+
+
+});
+
+});
   
   </script>
