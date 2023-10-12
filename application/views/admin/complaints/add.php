@@ -33,14 +33,15 @@
 
                   <div class="row">
                 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                               <label for="reportedby" class=" control-label">Reported By</label>
                               <input type="text" name="reportedby" class="form-control" id="reportedby" placeholder="">
                             </div>
                         </div>
-                        
-                        <div class="col-md-6">
+                        </div>
+                  <div class="row">      
+                        <div class="col-md-12">
                           <div class="form-group">
                             <label for="designation" class=" control-label">Designation</label>
                             <input type="text" name="designation" class="form-control" id="designation" placeholder="">
@@ -50,7 +51,7 @@
                   </div>
 
                   <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                             <div class="form-group">
                               <label for="mobileno" class=" control-label">Mobile No</label>
                               <input type="text" name="mobileno" class="form-control" id="mobileno" placeholder="">
@@ -67,7 +68,7 @@
 
                 <div class="row">
                 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                               <label for="loction" class=" control-label">Location</label>
                               <select class="form-control select2 eg-select2" id="loction" data-toggle="tooltip" placeholder="Select Location" required="true">
@@ -79,8 +80,9 @@
                                 </select>
                             </div>
                         </div>
-                        
-                        <div class="col-md-6">
+                        </div>
+                  <div class="row">       
+                        <div class="col-md-12">
                             <div class="form-group">
                               <label for="subloction" class=" control-label">Sub Location</label>
                               <select disabled class="form-control select2 eg-select2" id="subloction" data-toggle="tooltip" placeholder="Select Sub Location" required="true">
@@ -97,7 +99,7 @@
              
                   <div class="row">
 
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                             <div class="form-group">
                               <label for="subloction2" class=" control-label">Sub Location 2</label>
                               <select disabled class="form-control select2 eg-select2" id="subloction2" data-toggle="tooltip" placeholder="Select Sub Location 2" required="true">
@@ -110,15 +112,16 @@
 
                   <div class="row">
                 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                               <label for="loctiondetails" class=" control-label">Locations Details</label>
                               <textarea  name="loctiondetails" rows="2" class="form-control" id="loctiondetails" ></textarea>
 
                             </div>
                         </div>
-                        
-                        <div class="col-md-6">
+                        </div>
+                  <div class="row"> 
+                        <div class="col-md-12">
                             <div class="form-group">
                               <label for="workorderdetails" class=" control-label">Work Order Details</label>
                                 
@@ -141,7 +144,7 @@
 
                 <div class="row">
           
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                           <label for="comstatus" class=" control-label">Status</label>
                           <select class="form-control select2 eg-select2" id="comstatus" data-toggle="tooltip" placeholder="Status" required="true">
@@ -156,8 +159,9 @@
                             </select>
                         </div>
                     </div>
-                  
-                    <div class="col-md-6">
+                    </div>
+                  <div class="row"> 
+                    <div class="col-md-12">
                         <div class="form-group">
                           <label for="comtype" class=" control-label">Complaint Type</label>
                           <select class="form-control select2 eg-select2" id="comtype" data-toggle="tooltip" placeholder="Type" required="true">
@@ -178,14 +182,15 @@
                  </div>
                  <div class="row">
                 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                           <label for="date" class=" control-label">Date</label>
                           <input type="datetime-local"  value="<?php echo date('Y-m-d\TH:i'); ?>" name="date" class="form-control" id="date" placeholder="">
                         </div>
                     </div>
-
-                    <div class="col-md-6">
+                    </div>
+                  <div class="row"> 
+                    <div class="col-md-12">
                         <div class="form-group">
                           <label for="tag" class=" control-label">TAG</label>
                           <input type="text" name="tag" class="form-control" id="tag" placeholder="">
