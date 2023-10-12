@@ -33,9 +33,22 @@
   <!-- jQuery -->
   <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script>
 
-</head>
+  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/select2/select2.css">
 
-<body class="hold-transition sidebar-mini <?=  (isset($bg_cover)) ? 'bg-cover' : '' ?>">
+</head>
+<style>
+
+  .bg-cover-bt{
+
+
+    background-color: #fdf6e4;
+    
+  }
+
+
+</style>
+
+<body class="hold-transition sidebar-mini <?=  (isset($bg_cover)) ? 'bg-cover-bt' : '' ?>">
 
 <!-- Main Wrapper Start -->
 <div class="wrapper">

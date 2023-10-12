@@ -39,6 +39,7 @@
 <script src="<?= base_url() ?>assets/plugins/notify/notify.min.js"></script>
 <!-- DROPZONE -->
 <script src="<?= base_url() ?>assets/plugins/dropzone/dropzone.js" type="text/javascript"></script>
+<script src="<?= base_url() ?>assets/plugins/select2/select2.js" type="text/javascript"></script>
 
 <script>
 
@@ -52,6 +53,9 @@ $(function(){
 
 $(document).on('change','.country',function()
 {
+
+
+  $('.eg-select2').select2();
 
   if(this.value == '')
   {

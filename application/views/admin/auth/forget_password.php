@@ -3,8 +3,8 @@
   <div class="login-box">
 
     <div class="login-logo">
-
-      <h2><a href="<?= base_url('admin'); ?>"><?= $this->general_settings['application_name']; ?></a></h2>
+    <img src="<?= base_url()?>assets/img/sitelogo.jpeg" width="150">
+      <!-- <h2><a href="<?= base_url('admin'); ?>"><?= $this->general_settings['application_name']; ?></a></h2> -->
 
     </div>
 

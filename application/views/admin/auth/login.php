@@ -1,9 +1,10 @@
-<div class="login-box">
-  <div class="login-logo">
-  <h2><a href="<?= base_url('admin'); ?>"><?= $this->general_settings['application_name']; ?></a></h2>
+<div class="login-box" style="margin-top:5%;margin-bottom:5%;">
+  <div class="login-logo" >
+    <img src="<?= base_url()?>assets/img/sitelogo.jpeg" width="150">
+  <!-- <h2><a href="<?= base_url('admin'); ?>"><?= $this->general_settings['application_name']; ?></a></h2> -->
   </div>
   <!-- /.login-logo -->
-  <div class="card">
+  <div class="card" >
     <div class="card-body login-card-body">
       <p class="login-box-msg"><?= trans('signin_to_start_your_session') ?></p>
 
