@@ -84,7 +84,7 @@
     <table id="example1" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Action</th>
+                
                 <th>Reported By</th>
                 <th>Designation</th>
                 <th>Mobile No</th>
@@ -99,18 +99,14 @@
                 <th>TAG</th>
                 <th>Picture</th>
                 <th>Issue Detail</th>
+                <th>Action</th>
                 
             </tr>
         </thead>
         <tbody>
             <?php foreach($info as $index=>$row): ?>
             <tr>
-                <td style="width:100px">
-                    <a href="<?= base_url("admin/complaints/edit/".$row['ID']); ?>" class="btn btn-warning btn-xs mr5" >
-                    <i class="fa fa-edit"></i>
-                    </a>
-                    <a href="<?= base_url("admin/complaints/delete/".$row['ID']); ?>" onclick="return confirm('are you sure to delete?')" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i></a>
-                </td>
+                
                 <td>
 					<?=$row['reportedby']?> 
                     
@@ -155,7 +151,12 @@
                     <?=$row['detail']?>
                 </td>
                 
-                
+                <td style="width:100px">
+                    <a href="<?= base_url("admin/complaints/edit/".$row['ID']); ?>" class="btn btn-warning btn-xs mr5" >
+                    <i class="fa fa-edit"></i>
+                    </a>
+                    <a href="<?= base_url("admin/complaints/delete/".$row['ID']); ?>" onclick="return confirm('are you sure to delete?')" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i></a>
+                </td>
                
             </tr>
             <?php endforeach;?>
@@ -219,7 +220,7 @@ $("#list-workorders").addClass("active");
 });
   $(function () {
     $("#example1").DataTable({
-        columnDefs: [{ width: 100, targets: 0 }],
+        columnDefs: [{ width: 100, targets: 14 }],
         fixedColumns: true,
         scrollX: true
       
