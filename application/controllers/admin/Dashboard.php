@@ -29,7 +29,7 @@ class Dashboard extends My_Controller {
 
 		$this->load->view('admin/includes/_header', $data);
 
-    	$this->load->view('admin/dashboard/index2');
+    	$this->load->view('admin/dashboard/index');
 
     	$this->load->view('admin/includes/_footer');
 

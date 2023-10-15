@@ -22,6 +22,7 @@ class Complaints extends MY_Controller
 		$data['admin_roles'] = $this->complaints->get_admin_roles();
 		
 		$data['title'] = 'Complaints';
+		$data['info'] = $this->complaints->get_all();
 
 		$this->load->view('admin/includes/_header');
 		$this->load->view('admin/complaints/index', $data);
@@ -41,6 +42,7 @@ class Complaints extends MY_Controller
 
 		$data['info'] = $this->complaints->get_all();
 
+		
 		$this->load->view('admin/complaints/list',$data);
 	}
 

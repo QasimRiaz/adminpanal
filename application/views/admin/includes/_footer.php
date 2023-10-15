@@ -55,7 +55,7 @@ $(document).on('change','.country',function()
 {
 
 
-  $('.eg-select2').select2();
+  
 
   if(this.value == '')
   {
@@ -122,6 +122,13 @@ $(document).on('change','.state',function()
   });
     });
   });
+
+  jQuery(document).ready(function () {
+
+    $('.eg-select2').select2();
+
+  })
+
 </script>
 
 </body>

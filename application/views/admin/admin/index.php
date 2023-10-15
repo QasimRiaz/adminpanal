@@ -71,7 +71,18 @@
 <script>
   $(function () {
     $("#example1").DataTable();
+
+
+   
   });
+
+  $(document).ready(function() {
+
+    $("#users").addClass("menu-open");
+    $("#list-user").addClass("active");
+    
+    
+  })
 
 </script> 
 

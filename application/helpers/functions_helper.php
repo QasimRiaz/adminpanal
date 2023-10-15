@@ -1,5 +1,23 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	
+    // -----------------------------------------------------------------------------
+    //check auth
+    if (!function_exists('user_admin_level')) {
+        function user_admin_level()
+        {
+            // Get a reference to the controller object
+            $ci =& get_instance();
+
+        
+            
+            return $ci->session->userdata('admin_role');
+         
+
+            
+        }
+    }
+
+
     
     // -----------------------------------------------------------------------------
     //check auth

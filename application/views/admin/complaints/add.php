@@ -6,10 +6,10 @@
         <div class="card-header">
           <div class="d-inline-block">
               <h3 class="card-title"> <i class="fa fa-plus"></i>
-              Add New Complaint</h3>
+              New Work Order</h3>
           </div>
           <div class="d-inline-block float-right">
-            <a href="<?= base_url('admin/complaints'); ?>" class="btn btn-success"><i class="fa fa-list"></i> Complaints</a>
+            <a href="<?= base_url('admin/complaints'); ?>" class="btn btn-success"><i class="fa fa-list"></i> Work Orders</a>
           </div>
         </div>
         <div class="card-body">
@@ -26,7 +26,7 @@
 
                   <div class="row">
 
-                  <div class="col-md-12"><h5>Complaint Author Information</h5></div>
+                  <div class="col-md-12"><h5>Author Information</h5></div>
                   
                   </div>
                   <br>
@@ -70,8 +70,8 @@
                 
                         <div class="col-md-12">
                             <div class="form-group">
-                              <label for="loction" class=" control-label">Location</label>
-                              <select class="form-control select2 eg-select2" id="loction" data-toggle="tooltip" placeholder="Select Location" required="true">
+                              <label for="loction" class=" control-label">Site</label>
+                              <select class="form-control select2 eg-select2" id="loction" data-toggle="tooltip" placeholder="Select Site" required="true">
                                     <option value="" ></option>
                                     <option value="HQ" >HQ</option>
                                     <option value="Acc">Acc</option>
@@ -84,8 +84,8 @@
                   <div class="row">       
                         <div class="col-md-12">
                             <div class="form-group">
-                              <label for="subloction" class=" control-label">Sub Location</label>
-                              <select disabled class="form-control select2 eg-select2" id="subloction" data-toggle="tooltip" placeholder="Select Sub Location" required="true">
+                              <label for="subloction" class=" control-label">Location</label>
+                              <select disabled class="form-control select2 eg-select2" id="subloction" data-toggle="tooltip" placeholder="Select Location" required="true">
                                    
                                   
                                 </select>
@@ -101,8 +101,8 @@
 
                   <div class="col-md-12">
                             <div class="form-group">
-                              <label for="subloction2" class=" control-label">Sub Location 2</label>
-                              <select disabled class="form-control select2 eg-select2" id="subloction2" data-toggle="tooltip" placeholder="Select Sub Location 2" required="true">
+                              <label for="subloction2" class=" control-label">Sub Location</label>
+                              <select disabled class="form-control select2 eg-select2" id="subloction2" data-toggle="tooltip" placeholder="Select Sub Location" required="true">
                                    
                                   
                                 </select>
@@ -137,7 +137,7 @@
                   <hr>
                 <div class="row">
 
-                <div class="col-md-12"><h5>Complaint Details </h5></div>
+                <div class="col-md-12"><h5>Work Order Details </h5></div>
 
                 </div>
                 <br>
@@ -165,16 +165,10 @@
                         <div class="form-group">
                           <label for="comtype" class=" control-label">Complaint Type</label>
                           <select class="form-control select2 eg-select2" id="comtype" data-toggle="tooltip" placeholder="Type" required="true">
-                                <option value="HVAC" >HVAC</option>
-                                <option value="CIVIl">CIVIl</option>
-                                <option value="FIRE">FIRE</option>
-                                <option value="PUMPS">PUMPS</option>
-                                <option value="ELECTRICAL">ELECTRICAL</option>
-                                <option value="MECHANICAL">MECHANICAL</option>
-                                <option value="CARPANTER">CARPANTER</option>
-                                <option value="PLUMBING">PLUMBING</option>
-                                <option value="LIFT">LIFT</option>
-                              
+                                <option value="urgent" >Urgent</option>
+                                <option value="normal">Normal</option>
+                                <option value="planned">Planned</option>
+                               
                             </select>
                         </div>
                     </div>
@@ -193,7 +187,20 @@
                     <div class="col-md-12">
                         <div class="form-group">
                           <label for="tag" class=" control-label">TAG</label>
-                          <input type="text" name="tag" class="form-control" id="tag" placeholder="">
+                          
+
+                          <select class="form-control select2 eg-select2" id="tag" data-toggle="tooltip" placeholder="Type" required="true" multiple="multiple">
+                                <option value="HVAC" >HVAC</option>
+                                <option value="CIVIl">CIVIl</option>
+                                <option value="FIRE">FIRE</option>
+                                <option value="PUMPS">PUMPS</option>
+                                <option value="ELECTRICAL">ELECTRICAL</option>
+                                <option value="MECHANICAL">MECHANICAL</option>
+                                <option value="CARPANTER">CARPANTER</option>
+                                <option value="PLUMBING">PLUMBING</option>
+                                <option value="LIFT">LIFT</option>
+                              
+                            </select>
                         </div>
                     </div>
                 
@@ -233,7 +240,7 @@
                 
                   <div class="form-group">
                     <div class="col-md-12">
-                      <input type="submit" name="submit" value="Add Complaints" class="btn btn-primary pull-right">
+                      <input type="submit" name="submit" value="Add Work Order" class="btn btn-primary pull-right">
                     </div>
                   </div>
                   <?php echo form_close(); ?>
@@ -253,14 +260,14 @@
    var listofHQ = {
     
     sublocationOurstation: {
-        zabeelhvac: 'ZABEEL HVAC',
-        alminacivil: 'AL MINA CIVIl',
-        airportgate5fire: 'AIRPORT GATE 5 FIRE',
-        jafzagate5pumps: 'JAFZA GATE 5 PUMPS',
-        alkhailgateelectrical: 'AL KHAIL GATE ELECTRICAL',
-        sobhamechanical: 'SOBHA MECHANICAL',
-        seikshuaibcarpenter: 'SEIK SHUAIB CARPANTER',
-        alkhawaneejplumbing: 'AL KHAWANEEJ PLUMBING',
+        zabeelhvac: 'ZABEEL',
+        alminacivil: 'AL MINA',
+        airportgate5fire: 'AIRPORT GATE 5',
+        jafzagate5pumps: 'JAFZA GATE 5',
+        alkhailgateelectrical: 'AL KHAIL GATE',
+        sobhamechanical: 'SOBHA',
+        seikshuaibcarpenter: 'SEIK SHUAIB',
+        alkhawaneejplumbing: 'AL KHAWANEEJ',
         alsufouh: 'AL SUFOUH',
         jabelali: 'JABEL ALI',
         dubaiinvest: 'DUBAI INVEST',
@@ -313,6 +320,17 @@
   
   
 jQuery(document).ready(function () {
+
+ 
+
+$("#workorders").addClass("menu-open");
+$("#add-workorders").addClass("active");
+
+
+
+
+
+
 
 jQuery("#loction").on("change", function () {
 

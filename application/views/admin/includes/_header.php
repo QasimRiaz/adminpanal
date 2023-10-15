@@ -33,7 +33,7 @@
   <!-- jQuery -->
   <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/select2/select2.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -45,6 +45,25 @@
     
   }
 
+  .select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    height: 40px;
+}
+
+.select2-container--default .select2-selection--multiple {
+  background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    height: 40px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+
+
+  color:#333;
+}
 
 </style>
 
@@ -100,11 +119,13 @@
           <a href="<?= base_url() ?>/admin/auth/logout" class="nav-link">
             <i class="fa fa-sign-out mr-2"></i> Logout
           </a>
+        
           <div class="dropdown-divider"></div>
-        <a href="<?= base_url() ?>/admin/general_settings/" class="nav-link">
+          
+          <!-- <a href="<?= base_url() ?>/admin/general_settings/" class="nav-link">
             <i class="fa fa-cogs mr-2"></i> <?= trans('settings') ?>
           </a>
-          <div class="dropdown-divider"></div>
+          <div class="dropdown-divider"></div> -->
           
          
       </li> 

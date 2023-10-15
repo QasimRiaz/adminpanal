@@ -95,3 +95,18 @@
       </div>
     </section> 
   </div>
+
+
+  <script>
+
+
+$(document).ready(function() {
+
+$("#users").addClass("menu-open");
+$("#add-user").addClass("active");
+
+
+});
+
+
+  </script>

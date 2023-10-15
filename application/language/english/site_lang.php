@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['complaints_list'] = "Complaint Listing";
-$lang['add_complaint'] = "Add New Complaints";
-$lang['complaints'] = "Complaints";
+$lang['complaints_list'] = "Work Order Listing";
+$lang['add_complaint'] = "New Work Orders";
+$lang['complaints'] = "Work Orders";
 
 
 $lang['contact'] = "Contact";

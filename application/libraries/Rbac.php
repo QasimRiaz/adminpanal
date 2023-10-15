@@ -1,11 +1,14 @@
 <?php
 class RBAC 
 {	
-	private $module_access;
+	private $module_access; 
 	function __construct()
 	{
 		$this->obj =& get_instance();
 		$this->obj->module_access = $this->obj->session->userdata('module_access');
+		//echo '<pre>';
+		//print_r($this->obj->module_access);exit;
+		
 		$this->obj->is_supper = $this->obj->session->userdata('is_supper');
 	}
 
@@ -48,6 +51,8 @@ class RBAC
 		if($this->obj->is_supper)
 			return true;
 		elseif(isset($this->obj->module_access[$module])){
+			
+			
 			foreach($this->obj->module_access[$module] as $key => $value)
 			{
 			  if($key == 'access') {

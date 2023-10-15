@@ -1,5 +1,9 @@
 <?php 
 $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);  
+
+$currentuserlevel = user_admin_level();
+
+
 ?>  
 
 
@@ -28,57 +32,165 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- Add icons to the links using the .nav-icon class
-             with font-awesome or any other icon font library -->
-        <?php 
-          $menu = get_sidebar_menu(); 
 
-          foreach ($menu as $nav):
+    <?php if($currentuserlevel == 'Admin'){ ?>
+      <li id="dashboard" class="nav-item has-treeview">
 
-            $sub_menu = get_sidebar_sub_menu($nav['module_id']);
+        <a href="<?= base_url('admin/dashboard/'); ?>" class="nav-link">
+          <i class="nav-icon fa fa-pie-chart"></i>
+          <p>
+            Dashboard
+           
+          </p>
+        </a>
+      </li>
 
-            $has_submenu = (count($sub_menu) > 0) ? true : false;
-        ?>
+      <?php } ?>
+      <?php if($currentuserlevel == 'Admin'){ ?>
+      <li id="users" class="nav-item ">
 
-        <?php if($this->rbac->check_module_permission($nav['controller_name'])): ?> 
-
-        <li id="<?= ($nav['controller_name']) ?>" class="nav-item <?= ($has_submenu) ? 'has-treeview' : '' ?> has-treeview">
-
-          <a href="<?= base_url('admin/'.$nav['controller_name']) ?>" class="nav-link">
-            <i class="nav-icon fa <?= $nav['fa_icon'] ?>"></i>
-            <p>
-              <?= trans($nav['module_name']) ?>
-              <?= ($has_submenu) ? '<i class="right fa fa-angle-left"></i>' : '' ?>
-            </p>
-          </a>
-
-          <!-- sub-menu -->
-          <?php 
-            if($has_submenu): 
-          ?>
-          <ul class="nav nav-treeview">
-
-            <?php foreach($sub_menu as $sub_nav): ?>
+        <a href="#" class="nav-link">
+          <i class="nav-icon fa fa-users"></i>
+          <p>
+            User Management
+            <i class="right fa fa-angle-left"></i>
+          </p>
+        </a>
+     
+        <ul class="nav nav-treeview">
 
             <li class="nav-item">
-              <a href="<?= base_url('admin/'.$nav['controller_name'].'/'.$sub_nav['link']); ?>" class="nav-link">
+              <a id="list-user" href="<?= base_url('admin/admin/'); ?>" class="nav-link">
                 <i class="fa fa-circle-o nav-icon"></i>
-                <p><?= trans($sub_nav['name']) ?></p>
+                <p>User List</p>
               </a>
             </li>
 
-            <?php endforeach; ?>
-           
+            <li  class="nav-item">
+              <a id="add-user" href="<?= base_url('admin/admin/add'); ?>" class="nav-link">
+                <i class="fa fa-circle-o nav-icon"></i>
+                <p>Add New User</p>
+              </a>
+            </li>
+
           </ul>
-          <?php endif; ?>
-          <!-- /sub-menu -->
+         
+         
+        </li>
+        <?php } ?>
+        <?php if($currentuserlevel == 'Admin'){ ?>
+        <li id="workorders" class="nav-item ">
+
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-flag"></i>
+            <p>
+              Work Order Management
+              <i class="right fa fa-angle-left"></i>
+            </p>
+          </a>
+
+          <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a id="list-workorders" href="<?= base_url('admin/complaints/'); ?>" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Work Order List</p>
+                </a>
+              </li>
+
+              <li  class="nav-item">
+                <a id="add-workorders" href="<?= base_url('admin/complaints/add'); ?>" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Add New Work Order</p>
+                </a>
+              </li>
+
+            </ul>
         </li>
 
-        <?php endif; ?>
+        <?php } ?>
+        <?php if($currentuserlevel == 'Admin'){ ?>
+        <li id="workorders" class="nav-item ">
 
-        <?php endforeach; ?>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-briefcase"></i>
+                <p>
+                  Inventory Management
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+        </li>
+        <?php } ?>
+        <?php if($currentuserlevel == 'Admin'){ ?>
+        <li id="workorders" class="nav-item ">
 
-        
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-line-chart"></i>
+                <p>
+                  PPM Management
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+        </li>
+        <?php } ?>
+        <?php if($currentuserlevel == 'Admin'){ ?>
+        <li id="workorders" class="nav-item ">
+
+              <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-line-chart"></i>
+                <p>
+                  Financial Management
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+        </li>
+        <?php } ?>
+        <?php if($currentuserlevel == 'Client'){ ?>
+
+              <li id="newwork" class="nav-item has-treeview">
+
+                <a href="<?= base_url('admin/complaints/add'); ?>" class="nav-link">
+                  <i class="nav-icon fa fa-plus"></i>
+                  <p>New Work Order</p>
+                </a>
+
+              </li>
+              <li id="workorderreport" class="nav-item has-treeview">
+
+                <a href="<?= base_url('admin/complaints/'); ?>" class="nav-link">
+                  <i class="nav-icon fa fa-flag"></i>
+                  <p>Track Work Order</p>
+                </a>
+                
+              </li>
+              <li id="workorderreport" class="nav-item has-treeview">
+
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fa fa-file-text-o"></i>
+                  <p>Work Order Reports</p>
+                </a>
+                
+              </li>
+              <li id="returnmaterial" class="nav-item has-treeview">
+
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fa fa-undo"></i>
+                  <p>Return Material List</p>
+                </a>
+
+              </li>
+              <li id="riseacomplaint" class="nav-item has-treeview">
+
+                <a href="#" class="nav-link">
+                  <i class="fa fa-exclamation-triangle"></i>
+                  <p>Rise a Complaint</p>
+                </a>
+
+              </li>
+
+              
+
+      <?php } ?>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -86,7 +198,3 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
   <!-- /.sidebar -->
 </aside>
 
-<script>
-  $("#<?= $cur_tab ?>").addClass('menu-open');
-  $("#<?= $cur_tab ?> > a").addClass('active');
-</script>
