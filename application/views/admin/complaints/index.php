@@ -88,6 +88,7 @@
                 <th>Reported By</th>
                 <th>Designation</th>
                 <th>Mobile No</th>
+                <th>Company Name</th>
                 <th>Site</th>
                 <th>Location</th>
                 <th>Sub Location</th>
@@ -117,6 +118,9 @@
                 <td>
 					<?=$row['mobileno']?>
                 </td>
+                <td>
+                    <?=$row['compnay_name']?>
+                </td> 
                 <td>
                     <?=$row['loction']?>
                 </td> 

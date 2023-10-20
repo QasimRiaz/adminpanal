@@ -100,6 +100,7 @@ class Complaints extends MY_Controller
 						'subloction2' => $this->input->post('subloction2'),
 						'comstatus' =>  $this->input->post('comstatus'),
 						'comtype' => $this->input->post('comtype'),
+						'compnay_name' => $this->input->post('compnay_name'),
 						'tag' => $this->input->post('tag'),
 						'created_at' => date('Y-m-d : h:m:s'),
 						'workorderdetails' => $this->input->post('workorderdetails'),

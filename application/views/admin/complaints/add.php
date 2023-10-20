@@ -60,6 +60,14 @@
                             </div>
                       </div>
                   </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="mobileno" class=" control-label">Company Name</label>
+                              <input type="text" name="compnay_name" class="form-control" id="compnay_name" placeholder="Company Name" required="true">
+                            </div>
+                      </div>
+                  </div>
                   <hr>
                 <div class="row">
 

@@ -21,14 +21,14 @@
                 <label for="username" class="col-md-2 control-label"><?= trans('username') ?></label>
 
                 <div class="col-md-12">
-                  <input type="text" name="username" value="<?= $admin['username']; ?>" class="form-control" id="username" placeholder="">
+                  <input type="text" name="username" value="<?= $admin['username']; ?>" class="form-control" id="username" placeholder="" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="firstname" class="col-md-2 control-label"><?= trans('firstname') ?></label>
 
                 <div class="col-md-12">
-                  <input type="text" name="firstname" value="<?= $admin['firstname']; ?>" class="form-control" id="firstname" placeholder="">
+                  <input type="text" name="firstname" value="<?= $admin['firstname']; ?>" class="form-control" id="firstname" placeholder="" required>
                 </div>
               </div>
 
@@ -36,29 +36,44 @@
                 <label for="lastname" class="col-md-2 control-label"><?= trans('lastname') ?></label>
 
                 <div class="col-md-12">
-                  <input type="text" name="lastname" value="<?= $admin['lastname']; ?>" class="form-control" id="lastname" placeholder="">
+                  <input type="text" name="lastname" value="<?= $admin['lastname']; ?>" class="form-control" id="lastname" placeholder="" required>
                 </div>
               </div>
+              <div class="form-group">
+                    <label for="lastname" class="col-md-12 control-label">Company Name</label>
+
+                    <div class="col-md-12">
+                      <input type="text" name="company_name" class="form-control" id="company_name" placeholder="Company Name" value="<?= $admin['company_name']; ?>" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastname" class="col-md-12 control-label">Designation</label>
+
+                    <div class="col-md-12">
+                      <input type="text" name="designation" class="form-control" id="designation" placeholder="Designation" value="<?= $admin['designation']; ?>" required>
+                    </div>
+                  </div>
 
               <div class="form-group">
                 <label for="email" class="col-md-2 control-label"><?= trans('email') ?></label>
 
                 <div class="col-md-12">
-                  <input type="email" name="email" value="<?= $admin['email']; ?>" class="form-control" id="email" placeholder="">
+                  <input type="email" name="email" value="<?= $admin['email']; ?>" class="form-control" id="email" placeholder="" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="mobile_no" class="col-md-2 control-label"><?= trans('mobile_no') ?></label>
 
                 <div class="col-md-12">
-                  <input type="number" name="mobile_no" value="<?= $admin['mobile_no']; ?>" class="form-control" id="mobile_no" placeholder="">
+                  <input type="number" name="mobile_no" value="<?= $admin['mobile_no']; ?>" class="form-control" id="mobile_no" placeholder="" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="role" class="col-md-2 control-label"><?= trans('select_status') ?></label>
 
                 <div class="col-md-12">
-                  <select name="status" class="form-control">
+                  <select name="status" class="form-control" required>
                     <option value=""><?= trans('select_status') ?></option>
                     <option value="1" <?= ($admin['is_active'] == 1)?'selected': '' ?> ><?= trans('active') ?></option>
                     <option value="0" <?= ($admin['is_active'] == 0)?'selected': '' ?>><?= trans('inactive') ?></option>
@@ -77,7 +92,7 @@
                 <label for="role" class="col-md-2 control-label"><?= trans('select_admin_role') ?>*</label>
 
                 <div class="col-md-12">
-                  <select name="role" class="form-control">
+                  <select name="role" class="form-control" required>
                     <option value=""><?= trans('select_role') ?></option>
                     <?php foreach($admin_roles as $role): ?>
                       <?php if($role['admin_role_id'] == $admin['admin_role_id']): ?>
