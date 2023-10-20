@@ -14,6 +14,8 @@
                 <?php $this->load->view('admin/includes/_messages.php') ?>
 
                 <?php echo form_open_multipart(base_url('admin/general_settings/add')); ?>	
+
+                
                 <!-- Nav tabs -->
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                   <li class="nav-item">

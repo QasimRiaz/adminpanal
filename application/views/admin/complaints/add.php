@@ -14,6 +14,7 @@
         </div>
         <div class="card-body">
           <div class="row">
+            
             <div class="col-md-12">
               <div class="box">
                 <!-- form start -->
@@ -22,7 +23,8 @@
                   <!-- For Messages -->
                   <?php $this->load->view('admin/includes/_messages.php') ?>
 
-                  <?php echo form_open(base_url('admin/complaints/add'), 'class="form-horizontal"');  ?> 
+                
+                  <?php echo form_open_multipart(base_url('admin/complaints/add')); ?>	
 
                   <div class="row">
 
@@ -36,7 +38,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                               <label for="reportedby" class=" control-label">Reported By</label>
-                              <input type="text" name="reportedby" class="form-control" id="reportedby" placeholder="">
+                              <input type="text" name="reportedby" class="form-control" id="reportedby" placeholder="" required="true">
                             </div>
                         </div>
                         </div>
@@ -44,7 +46,7 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <label for="designation" class=" control-label">Designation</label>
-                            <input type="text" name="designation" class="form-control" id="designation" placeholder="">
+                            <input type="text" name="designation" class="form-control" id="designation" placeholder="" required="true">
                           </div>
                         </div>
 
@@ -54,7 +56,7 @@
                       <div class="col-md-12">
                             <div class="form-group">
                               <label for="mobileno" class=" control-label">Mobile No</label>
-                              <input type="text" name="mobileno" class="form-control" id="mobileno" placeholder="">
+                              <input type="text" name="mobileno" class="form-control" id="mobileno" placeholder="" required="true">
                             </div>
                       </div>
                   </div>
@@ -125,7 +127,7 @@
                             <div class="form-group">
                               <label for="workorderdetails" class=" control-label">Work Order Details</label>
                                 
-                              <textarea  name="workorderdetails" rows="2" class="form-control" id="workorderdetails" ></textarea>
+                              <textarea  name="workorderdetails" rows="2" class="form-control" id="workorderdetails" required="true"></textarea>
                                 </select>
                             </div>
                         </div>
@@ -179,7 +181,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                           <label for="date" class=" control-label">Date</label>
-                          <input type="datetime-local"  value="<?php echo date('Y-m-d\TH:i'); ?>" name="date" class="form-control" id="date" placeholder="">
+                          <input type="datetime-local"  value="<?php echo date('Y-m-d\TH:i'); ?>" name="date" class="form-control" id="date" placeholder="" required="true">
                         </div>
                     </div>
                     </div>
@@ -211,10 +213,9 @@
                     <div class="col-md-12">
                         <div class="form-group">
                           <label for="issuepicture" class=" control-label">Upload Picture</label>
-                          <div class="custom-file">
-                          <input type="file" class="custom-file-input" name="issuepicture" id="issuepicture">
-                          <label class="custom-file-label" for="issuepicture">Choose file</label>
-                          </div>
+                          
+                          <input type="file" name="issuepicture" accept=".png, .jpg, .jpeg, .gif, .svg" required="true">
+                           <p><small class="text-success"><?= trans('allowed_types') ?>: gif, jpg, png, jpeg</small></p>
                           </div>
                           </div>
                           
@@ -228,8 +229,8 @@
                 
                     <div class="col-md-12">
                         <div class="form-group">
-                          <label for="issuepicture" class=" control-label">Issue Detail</label>
-                          <textarea  name="detail" rows="5" class="form-control" id="detail" ></textarea>
+                          <label for="detail" class=" control-label">Issue Detail</label>
+                          <textarea  name="detail" rows="5" class="form-control" id="detail" required="true"></textarea>
                         </div>
                     </div>
 
@@ -241,6 +242,7 @@
                   <div class="form-group">
                     <div class="col-md-12">
                       <input type="submit" name="submit" value="Add Work Order" class="btn btn-primary pull-right">
+                      
                     </div>
                   </div>
                   <?php echo form_close(); ?>

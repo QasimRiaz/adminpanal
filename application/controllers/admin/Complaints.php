@@ -10,6 +10,10 @@ class Complaints extends MY_Controller
 
 		$this->load->model('admin/complaints_model', 'complaints');
 		$this->load->model('admin/Activity_model', 'activity_model');
+		$this->load->helper('form');
+		
+
+
     }
 
 	//-----------------------------------------------------		
@@ -65,27 +69,27 @@ class Complaints extends MY_Controller
 
 		if($this->input->post('submit')){
 				
-				$this->form_validation->set_rules('reportedby', 'Reported By', 'trim|required');
-				$this->form_validation->set_rules('designation', 'Designation', 'trim|required');
-				$this->form_validation->set_rules('mobileno', 'Mobile Number', 'trim|required');
-				$this->form_validation->set_rules('loction', 'Site', 'trim|required');
-				$this->form_validation->set_rules('subloction', 'Location', 'trim|required');
-				$this->form_validation->set_rules('subloction2', 'Sub Location', 'trim|required');
-				$this->form_validation->set_rules('comstatus', 'Status', 'trim|required');
-				$this->form_validation->set_rules('comtype', 'Type', 'trim|required');
-				$this->form_validation->set_rules('date', 'Date&time', 'trim|required');
-				$this->form_validation->set_rules('tag', 'Tag', 'trim|required');
+				// $this->form_validation->set_rules('reportedby', 'Reported By', 'trim|required');
+				// $this->form_validation->set_rules('designation', 'Designation', 'trim|required');
+				// $this->form_validation->set_rules('mobileno', 'Mobile Number', 'trim|required');
+				// $this->form_validation->set_rules('loction', 'Site', 'trim|required');
+				// $this->form_validation->set_rules('subloction', 'Location', 'trim|required');
+				// $this->form_validation->set_rules('subloction2', 'Sub Location', 'trim|required');
+				// $this->form_validation->set_rules('comstatus', 'Status', 'trim|required');
+				// $this->form_validation->set_rules('comtype', 'Type', 'trim|required');
+				// $this->form_validation->set_rules('date', 'Date&time', 'trim|required');
+				// $this->form_validation->set_rules('tag', 'Tag', 'trim|required');
 				
 				
 
-				if ($this->form_validation->run() == FALSE) {
-					$data = array(
-						'errors' => validation_errors()
-					);
-					$this->session->set_flashdata('errors', $data['errors']);
-					redirect(base_url('admin/complaints/add'),'refresh');
-				}
-				else{
+				// if ($this->form_validation->run() == FALSE) {
+				// 	$data = array(
+				// 		'errors' => validation_errors()
+				// 	);
+				// 	$this->session->set_flashdata('errors', $data['errors']);
+				// 	redirect(base_url('admin/complaints/add'),'refresh');
+				// }
+				// else{
 
 					$data = array(
 						'reportedby' => $this->input->post('reportedby'),
@@ -113,8 +117,7 @@ class Complaints extends MY_Controller
 
 							$result = $this->functions->file_insert($path, 'issuepicture', 'image', '197152');
 
-							echo '<pre>';
-							print_r($result);exit;
+							
 							if($result['status'] == 1){
 								$data['issuepicture'] = $path.$result['msg'];
 							}
@@ -136,7 +139,7 @@ class Complaints extends MY_Controller
 						$this->session->set_flashdata('success', 'Workorder has been added successfully!');
 						redirect(base_url('admin/complaints'));
 					}
-				}
+				//}
 			}
 			else
 			{

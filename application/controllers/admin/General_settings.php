@@ -41,6 +41,9 @@ class General_settings extends MY_Controller {
 	//-------------------------------------------------------------------------
 	public function add()
 	{
+
+
+	
 		$this->rbac->check_operation_access(); // check opration permission
 		
 		$data = array(
