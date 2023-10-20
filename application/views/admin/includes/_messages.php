@@ -1,7 +1,14 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
     <!--print error messages-->
-    <?php if($this->session->flashdata('errors')): ?>
+    <?php 
+    
+    
+
+
+    
+    
+    if($this->session->flashdata('errors')): ?>
       <div class="alert alert-danger">
         <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
         <?= $this->session->flashdata('errors')?>

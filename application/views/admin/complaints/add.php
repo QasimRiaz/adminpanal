@@ -71,7 +71,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                               <label for="loction" class=" control-label">Site</label>
-                              <select class="form-control select2 eg-select2" id="loction" data-toggle="tooltip" placeholder="Select Site" required="true">
+                              <select class="form-control select2 eg-select2" name="loction" id="loction" data-toggle="tooltip" placeholder="Select Site" required="true">
                                     <option value="" ></option>
                                     <option value="HQ" >HQ</option>
                                     <option value="Acc">Acc</option>
@@ -85,7 +85,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                               <label for="subloction" class=" control-label">Location</label>
-                              <select disabled class="form-control select2 eg-select2" id="subloction" data-toggle="tooltip" placeholder="Select Location" required="true">
+                              <select disabled class="form-control select2 eg-select2" name="subloction" id="subloction" data-toggle="tooltip" placeholder="Select Location" required="true">
                                    
                                   
                                 </select>
@@ -102,7 +102,7 @@
                   <div class="col-md-12">
                             <div class="form-group">
                               <label for="subloction2" class=" control-label">Sub Location</label>
-                              <select disabled class="form-control select2 eg-select2" id="subloction2" data-toggle="tooltip" placeholder="Select Sub Location" required="true">
+                              <select disabled class="form-control select2 eg-select2" id="subloction2" name="subloction2" data-toggle="tooltip" placeholder="Select Sub Location" required="true">
                                    
                                   
                                 </select>
@@ -147,7 +147,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                           <label for="comstatus" class=" control-label">Status</label>
-                          <select class="form-control select2 eg-select2" id="comstatus" data-toggle="tooltip" placeholder="Status" required="true">
+                          <select class="form-control select2 eg-select2" name="comstatus" id="comstatus" data-toggle="tooltip" placeholder="Status" required="true">
                                 <option value="open" >Open</option>
                                 <option value="inprogress" >In Progress</option>
                                 <option value="resolved">Resolved</option>
@@ -164,7 +164,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                           <label for="comtype" class=" control-label">Complaint Type</label>
-                          <select class="form-control select2 eg-select2" id="comtype" data-toggle="tooltip" placeholder="Type" required="true">
+                          <select class="form-control select2 eg-select2" name="comtype" id="comtype" data-toggle="tooltip" placeholder="Type" required="true">
                                 <option value="urgent" >Urgent</option>
                                 <option value="normal">Normal</option>
                                 <option value="planned">Planned</option>
@@ -189,7 +189,7 @@
                           <label for="tag" class=" control-label">TAG</label>
                           
 
-                          <select class="form-control select2 eg-select2" id="tag" data-toggle="tooltip" placeholder="Type" required="true" multiple="multiple">
+                          <select class="form-control select2 eg-select2" id="tag" data-toggle="tooltip" name="tag" placeholder="Type" required="true" multiple="multiple">
                                 <option value="HVAC" >HVAC</option>
                                 <option value="CIVIl">CIVIl</option>
                                 <option value="FIRE">FIRE</option>
@@ -212,7 +212,7 @@
                         <div class="form-group">
                           <label for="issuepicture" class=" control-label">Upload Picture</label>
                           <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="issuepicture">
+                          <input type="file" class="custom-file-input" name="issuepicture" id="issuepicture">
                           <label class="custom-file-label" for="issuepicture">Choose file</label>
                           </div>
                           </div>
@@ -229,7 +229,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                           <label for="issuepicture" class=" control-label">Issue Detail</label>
-                          <textarea  name="issuepicture" rows="5" class="form-control" id="detail" ></textarea>
+                          <textarea  name="detail" rows="5" class="form-control" id="detail" ></textarea>
                         </div>
                     </div>
 

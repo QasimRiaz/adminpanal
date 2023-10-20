@@ -104,8 +104,28 @@ class Complaints_model extends CI_Model{
 	
 		
 	//-----------------------------------------------------
-public function add_admin($data){
-	$this->db->insert('ci_admin', $data);
+public function add_new_complaints($data){
+
+	$id = $this->session->userdata('admin_id');
+	$datamain = array(
+		'post_author' => $id,
+		'post_title' => 'WorkOrders',
+		'post_status' => 'publish',
+		'post_type ' => 'blogworkorder',
+		'post_date' => date('Y-m-d : h:m:s'),
+		'post_modified' => date('Y-m-d : h:m:s'),
+		);
+		
+	$this->db->insert('ci_posts',$datamain);
+	$postID = $this->db->insert_id();
+
+	foreach($data as $sdatakey=>$sdatavalue){
+
+		$this->update_post_meta($postID,$sdatakey,$sdatavalue);
+
+	}	
+
+	
 	return true;
 }
 
@@ -131,6 +151,35 @@ function delete($id)
 	$this->db->where('admin_id',$id);
 	$this->db->delete('ci_admin');
 } 
+
+
+public function update_post_meta($postID,$key,$value){
+
+		
+	$this->db->where('post_id',$postID);
+	$this->db->where('meta_key',$key);
+	$q = $this->db->get('ci_postmeta');
+	$dataarray = $q->row_array();
+	$this->db->reset_query();
+
+	$data['post_id'] = $postID;
+	$data['meta_key'] = $key;
+	$data['meta_value'] = $value;
+
+
+	if ( $q->num_rows() > 0 ) 
+	{
+		
+		$this->db->where('meta_id', $dataarray['meta_id'])->update('ci_postmeta', $data);
+
+	} else {
+		
+		$this->db->insert('ci_postmeta', $data);
+
+	}
+
+
+}
 
 }
 
