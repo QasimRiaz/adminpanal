@@ -33,7 +33,7 @@ $currentuserlevel = user_admin_level();
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-    <?php if($currentuserlevel == 'Admin'){ ?>
+    
       <li id="dashboard" class="nav-item has-treeview">
 
         <a href="<?= base_url('admin/dashboard/'); ?>" class="nav-link">
@@ -45,7 +45,7 @@ $currentuserlevel = user_admin_level();
         </a>
       </li>
 
-      <?php } ?>
+     
       <?php if($currentuserlevel == 'Admin'){ ?>
       <li id="users" class="nav-item ">
 

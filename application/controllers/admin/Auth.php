@@ -12,6 +12,17 @@ class Auth extends MY_Controller {
 	//--------------------------------------------------------------
 	public function index(){
 
+		$flashDataTimestamp = $this->session->flashdata('key_timestamp');
+
+
+		if (!empty($flashDataTimestamp) && (time() - $flashDataTimestamp) > 60) {
+			$this->session->unset_flashdata('error');
+			$this->session->unset_flashdata('success');
+			$this->session->unset_flashdata('key_timestamp');
+		}
+
+
+
 		if($this->session->has_userdata('is_admin_login')){
 			redirect('admin/dashboard');
 		}
@@ -22,6 +33,17 @@ class Auth extends MY_Controller {
 
 	//--------------------------------------------------------------
 	public function login(){
+
+		$flashDataTimestamp = $this->session->flashdata('key_timestamp');
+
+		
+	
+
+		if (!empty($flashDataTimestamp) && (time() - $flashDataTimestamp) > 60) {
+			$this->session->unset_flashdata('error');
+			$this->session->unset_flashdata('success');
+			$this->session->unset_flashdata('key_timestamp');
+		}
 
 		if($this->input->post('submit')){
 
@@ -44,11 +66,13 @@ class Auth extends MY_Controller {
 				if($result){
 					if($result['is_verify'] == 0){
 						$this->session->set_flashdata('error', 'Please verify your email address!');
+						$this->session->set_flashdata('key_timestamp', time());
 						redirect(base_url('admin/auth/login'));
 						exit();
 					}
 					if($result['is_active'] == 0){
 						$this->session->set_flashdata('error', 'Account is disabled by Admin!');
+						$this->session->set_flashdata('key_timestamp', time());
 						redirect(base_url('admin/auth/login'));
 						exit();
 					}
@@ -66,6 +90,7 @@ class Auth extends MY_Controller {
 
 						if($result['is_supper'])
 						redirect(base_url('admin/dashboard/index'), 'refresh');
+						
 						else
 						redirect(base_url('admin/dashboard'), 'refresh');
 
@@ -73,6 +98,7 @@ class Auth extends MY_Controller {
 					}
 					else{
 						$this->session->set_flashdata('errors', 'Invalid Username or Password!');
+						$this->session->set_flashdata('key_timestamp', time());
 						redirect(base_url('admin/auth/login'));
 					}
 				}
@@ -93,25 +119,20 @@ class Auth extends MY_Controller {
 		//-------------------------------------------------------------------------
 		public function register(){
 
+			$flashDataTimestamp = $this->session->flashdata('key_timestamp');
+
+			if (!empty($flashDataTimestamp) && (time() - $flashDataTimestamp) > 60) {
+				$this->session->unset_flashdata('error');
+				$this->session->unset_flashdata('success');
+				$this->session->unset_flashdata('key_timestamp');
+			}
+
 			if($this->input->post('submit')){
 
 				// for google recaptcha
-				if ($this->recaptcha_status == true) {
-		            if (!$this->recaptcha_verify_request()) {
-		                $this->session->set_flashdata('form_data', $this->input->post());
-		                $this->session->set_flashdata('error', 'reCaptcha Error');
-		                redirect(base_url('admin/auth/register'));
-		                exit();
-		            }
-		        }
-	        
 				$this->form_validation->set_rules('username', 'Username', 'trim|alpha_numeric|is_unique[ci_admin.username]|required');
-				$this->form_validation->set_rules('firstname', 'Firstname', 'trim|required');
-				$this->form_validation->set_rules('lastname', 'Lastname', 'trim|required');
 				$this->form_validation->set_rules('email', 'Email', 'trim|valid_email|is_unique[ci_admin.email]|required');
-				$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
-				$this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'trim|required|matches[password]');
-
+				
 				if ($this->form_validation->run() == FALSE) {
 					$data = array(
 						'errors' => validation_errors()
@@ -121,16 +142,20 @@ class Auth extends MY_Controller {
 					redirect(base_url('admin/auth/register'),'refresh');
 				}
 				else{
+				
 					$data = array(
 						'username' => $this->input->post('username'),
 						'firstname' => $this->input->post('firstname'),
 						'lastname' => $this->input->post('lastname'),
+						'mobile_no' => $this->input->post('mobile_no'),
+						'designation' => $this->input->post('designation'),
+						'company_name' => $this->input->post('company_name'),
 						'admin_role_id' => 2, // By default i putt role is 2 for registraiton
 						'email' => $this->input->post('email'),
 						'password' =>  password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-						'is_active' => 1,
+						'is_active' => 0,
 						'is_verify' => 0,
-						'token' => md5(rand(0,1000)),    
+						'token' => md5(rand(0,1000)), 
 						'last_ip' => '',
 						'created_at' => date('Y-m-d : h:m:s'),
 						'updated_at' => date('Y-m-d : h:m:s'),
@@ -138,26 +163,34 @@ class Auth extends MY_Controller {
 					$data = $this->security->xss_clean($data);
 					$result = $this->auth_model->register($data);
 					if($result){
+
+						$this->session->set_flashdata('success', 'Your Account has been created successfully, Site Admin will be contact with you as soon as possible.');
+						$this->session->set_flashdata('key_timestamp', time());
+						redirect(base_url('admin/auth/login'));
+
+
 						//sending welcome email to user
-						$this->load->helper('email_helper');
+						// $this->load->helper('email_helper');
 
-						$mail_data = array(
-							'fullname' => $data['firstname'].' '.$data['lastname'],
-							'verification_link' => base_url('admin/auth/verify/').'/'.$data['token']
-						);
+						// $mail_data = array(
+						// 	'fullname' => $data['firstname'].' '.$data['lastname'],
+						// 	'verification_link' => base_url('admin/auth/verify/').'/'.$data['token']
+						// );
 
-						$to = $data['email'];
+						// $to = $data['email'];
 
-						$email = $this->mailer->mail_template($to,'email-verification',$mail_data);
+						// $email = $this->mailer->mail_template($to,'email-verification',$mail_data);
 
-						if($email){
-							$this->session->set_flashdata('success', 'Your Account has been made, please verify it by clicking the activation link that has been send to your email.');	
-							redirect(base_url('admin/auth/login'));
-						}	
-						else{
-							echo 'Email Error';
-						}
-					}
+						// if($email){
+						// 	$this->session->set_flashdata('success', 'Your Account has been made, please verify it by clicking the activation link that has been send to your email.');	
+						// 	redirect(base_url('admin/auth/login'));
+						// }	
+						// else{
+						// 	echo 'Email Error';
+						// }
+					
+				}
+
 				}
 			}
 			else{

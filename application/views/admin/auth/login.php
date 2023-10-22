@@ -24,7 +24,8 @@
           <div class="col-8">
             <div class="checkbox icheck">
               <label>
-              <input type="checkbox"> <?= trans('remember_me') ?>
+              <input type="checkbox"> <?= trans('remember_me') ?><br>
+              <a href="<?= base_url('admin/auth/register'); ?>">SignUp</a>
               </label>
             </div>
           </div>

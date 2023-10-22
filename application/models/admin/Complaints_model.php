@@ -30,18 +30,42 @@ class Complaints_model extends CI_Model{
 	}
 
 	//-----------------------------------------------------
-	function get_admin_by_id($id)
+	function get_complaint_by_id($id)
 	{
-		$this->db->from('ci_admin');
-		$this->db->join('ci_admin_roles','ci_admin_roles.admin_role_id=ci_admin.admin_role_id');
-		$this->db->where('admin_id',$id);
+		$this->db->from('ci_posts');
+		$this->db->where('ID',$id);
 		$query=$this->db->get();
-		return $query->row_array();
+		
+		
+		if ($query->num_rows() > 0) 
+		{
+			
+			$module = $query->result_array();
+			$postmeta = $this->getthspostmeta($module[0]['ID']);
+
+			
+		}
+		$postmeta['id'] = $module[0]['ID'];
+		return $postmeta;
 	}
 
 	//-----------------------------------------------------
 	function get_all()
 	{
+
+		$adminroleID = $this->session->userdata('admin_role_id');
+		$userID = $this->session->userdata('admin_id');
+		
+		
+		if($adminroleID == 2){
+
+
+			$loggedinuserData = $this->get_user_info();
+			$this->db->where('ci_posts.post_author  =', $userID);
+			
+
+		}
+
 
 		$this->db->from('ci_posts');
 
@@ -76,6 +100,32 @@ class Complaints_model extends CI_Model{
 
 
 //-----------------------------------------------------
+public function add_new_complaints($data){
+
+	$id = $this->session->userdata('admin_id');
+	$datamain = array(
+		'post_author' => $id,
+		'post_title' => 'WorkOrders',
+		'post_status' => 'publish',
+		'post_type ' => 'blogworkorder',
+		'post_date' => date('Y-m-d : h:m:s'),
+		'post_modified' => date('Y-m-d : h:m:s'),
+		);
+		
+	$this->db->insert('ci_posts',$datamain);
+	$postID = $this->db->insert_id();
+
+	foreach($data as $sdatakey=>$sdatavalue){
+
+		$this->update_post_meta($postID,$sdatakey,$sdatavalue);
+
+	}	
+
+	
+	return true;
+}
+
+//-----------------------------------------------------
 	
 	public function getthspostmeta($postid){
 
@@ -104,24 +154,12 @@ class Complaints_model extends CI_Model{
 	
 		
 	//-----------------------------------------------------
-public function add_new_complaints($data){
+public function update_complaints($data){
 
-	$id = $this->session->userdata('admin_id');
-	$datamain = array(
-		'post_author' => $id,
-		'post_title' => 'WorkOrders',
-		'post_status' => 'publish',
-		'post_type ' => 'blogworkorder',
-		'post_date' => date('Y-m-d : h:m:s'),
-		'post_modified' => date('Y-m-d : h:m:s'),
-		);
-		
-	$this->db->insert('ci_posts',$datamain);
-	$postID = $this->db->insert_id();
-
+	
 	foreach($data as $sdatakey=>$sdatavalue){
 
-		$this->update_post_meta($postID,$sdatakey,$sdatavalue);
+		$this->update_post_meta($data['id'],$sdatakey,$sdatavalue);
 
 	}	
 
@@ -179,6 +217,17 @@ public function update_post_meta($postID,$key,$value){
 	}
 
 
+}
+
+public function get_user_info(){
+	$id = $this->session->userdata('admin_id');
+	$this->db->where('admin_id', $id);
+
+	$query = $this->db->get('ci_admin');
+	
+
+	$postmeta = $query->result_array();
+	return $postmeta;
 }
 
 }

@@ -100,60 +100,139 @@
                 <th>TAG</th>
                 <th>Picture</th>
                 <th>Issue Detail</th>
+                <?php  if($loggedInuser_info[0]['admin_role_id'] == 1) { ?>
                 <th>Action</th>
+                <?php } ?>
                 
             </tr>
         </thead>
         <tbody>
             <?php foreach($info as $index=>$row): ?>
+
+               <?php  if($loggedInuser_info[0]['company_name'] == $row['compnay_name'] || $loggedInuser_info[0]['admin_role_id'] == 1) { ?>
             <tr>
                 
                 <td>
-					<?=$row['reportedby']?> 
+					
+                    <?php if(isset($row['reportedby'])){ echo $row['reportedby'];}?>
                     
                 </td>
                 <td>
-                    <?=$row['designation']?>
+
+                <?php if(isset($row['designation'])){ echo $row['designation'];}?>
+                   
                 </td> 
                 <td>
-					<?=$row['mobileno']?>
+               
+                <?php if(isset($row['mobileno'])){ echo $row['mobileno'];}?>
+					
                 </td>
                 <td>
-                    <?=$row['compnay_name']?>
+                
+                <?php if(isset($row['compnay_name'])){ echo $row['compnay_name'];}?>
+                    
                 </td> 
                 <td>
-                    <?=$row['loction']?>
+                
+                <?php if(isset($row['loction'])){ echo $row['loction'];}?>
+                    
                 </td> 
                 <td>
-                    <?=$row['subloction']?>
+                
+                <?php if(isset($row['subloction'])){ echo $row['subloction'];}?>
+                    
                 </td>
                 <td>
-                    <?=$row['subloction2']?>
+                
+                <?php if(isset($row['subloction2'])){ echo $row['subloction2'];}?>
+                    
                 </td>
                 <td>
-                    <?=$row['loctiondetails']?>
+                 
+                <?php if(isset($row['loctiondetails'])){ echo $row['loctiondetails'];}?>
+                    
                 </td>
                 <td>
-                    <?=$row['workorderdetails']?>
+              
+                <?php if(isset($row['workorderdetails'])){ echo $row['workorderdetails'];}?>
+                    
                 </td>
                 <td>
-                    <?=$row['comstatus']?>
+                
+                <?php if(isset($row['comstatus'])){ 
+                    
+                    
+                    
+                    if($row['comstatus'] == "open"){
+
+                        echo '<button class="btn btn-xs btn-danger">Open</button>';
+
+                    }elseif($row['comstatus'] == "inprogress"){
+
+                        echo '<button class="btn btn-xs btn-warning">In Progress</button>';
+
+                    }elseif($row['comstatus'] == "resolved"){
+
+                        echo '<button class="btn btn-xs btn-success">Resolved</button>';
+
+                    }elseif($row['comstatus'] == "closed"){
+
+                        echo '<button class="btn btn-xs btn-info">Closed</button>';
+
+                    }elseif($row['comstatus'] == "onhold"){
+
+                        echo '<button class="btn btn-xs btn-warning">On Hold</button>';
+
+                    }elseif($row['comstatus'] == "reopened"){
+
+                        echo '<button class="btn btn-xs btn-primary">Reopened</button>';
+
+                    }elseif($row['comstatus'] == "pendingreview"){
+
+                        echo '<button class="btn btn-xs btn-secondary">Pending Review</button>';
+
+                    }
+                    
+                    
+                    
+                    }?>
+                 
                 </td>
                 <td>
-                    <?=$row['comtype']?>
+                
+                <?php if(isset($row['comtype'])){ echo $row['comtype'];}?>
+                   
                 </td>
                 <td>
-                    <?=$row['date']?>
+                 
+                <?php if(isset($row['date'])){ echo $row['date'];}?>
+                   
                 </td>
                 <td>
-                    <?=$row['tag']?>
+                
+                <?php if(isset($row['tag'])){ echo $row['tag'];}?>
+                   
                 </td>
                 <td>
-                    <?=$row['issuepicture']?>
+                
+                <?php if(isset($row['issuepicture'])){ 
+                    
+                    
+                
+                    echo '<a href="'.base_url($row["issuepicture"]).'" target="_blank"><img src="'.base_url($row["issuepicture"]).'" width="50" class="pic"></a>';
+                        
+                    
+                    }
+                    
+                    ?>
+                   
                 </td>
                 <td>
-                    <?=$row['detail']?>
+                
+                <?php if(isset($row['detail'])){ echo $row['detail'];}?>
+                    
                 </td>
+                <?php  if($loggedInuser_info[0]['admin_role_id'] == 1) { ?>
                 
                 <td style="width:100px">
                     <a href="<?= base_url("admin/complaints/edit/".$row['ID']); ?>" class="btn btn-warning btn-xs mr5" >
@@ -161,8 +240,11 @@
                     </a>
                     <a href="<?= base_url("admin/complaints/delete/".$row['ID']); ?>" onclick="return confirm('are you sure to delete?')" class="btn btn-danger btn-xs"><i class="fa fa-remove"></i></a>
                 </td>
+
+                <?php } ?>
                
             </tr>
+            <?php } ?>
             <?php endforeach;?>
         </tbody>
     </table>
@@ -222,13 +304,37 @@ $("#list-workorders").addClass("active");
 
 
 });
-  $(function () {
+ 
+
+</script> 
+
+<?php  if($loggedInuser_info[0]['admin_role_id'] == 1) { ?>
+
+<script>
+
+$(function () {
     $("#example1").DataTable({
-        columnDefs: [{ width: 100, targets: 14 }],
-        fixedColumns: true,
+        columnDefs: [{ width: 100, targets: 15 }],
+        
         scrollX: true
       
     });
   });
 
-</script> 
+</script>
+<?php }else{?>
+
+    <script>
+
+$(function () {
+    $("#example1").DataTable({
+       
+       
+        scrollX: true
+      
+    });
+  });
+
+</script>
+
+<?php }?>

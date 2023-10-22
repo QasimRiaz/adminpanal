@@ -38,7 +38,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                               <label for="reportedby" class=" control-label">Reported By</label>
-                              <input type="text" name="reportedby" class="form-control" id="reportedby" placeholder="" required="true">
+                              <input type="text" name="reportedby" class="form-control" id="reportedby" value="<?php echo $loggedInuser_info[0]['firstname'].' '.$loggedInuser_info[0]['lastname'];?>" required>
                             </div>
                         </div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <label for="designation" class=" control-label">Designation</label>
-                            <input type="text" name="designation" class="form-control" id="designation" placeholder="" required="true">
+                            <input type="text" name="designation" class="form-control" id="designation" value="<?php echo $loggedInuser_info[0]['designation'];?>" required>
                           </div>
                         </div>
 
@@ -56,7 +56,7 @@
                       <div class="col-md-12">
                             <div class="form-group">
                               <label for="mobileno" class=" control-label">Mobile No</label>
-                              <input type="text" name="mobileno" class="form-control" id="mobileno" placeholder="" required="true">
+                              <input type="text" name="mobileno" class="form-control" id="mobileno" value="<?php echo $loggedInuser_info[0]['mobile_no'];?>" required>
                             </div>
                       </div>
                   </div>
@@ -64,7 +64,7 @@
                       <div class="col-md-12">
                             <div class="form-group">
                               <label for="mobileno" class=" control-label">Company Name</label>
-                              <input type="text" name="compnay_name" class="form-control" id="compnay_name" placeholder="Company Name" required="true">
+                              <input type="text" name="compnay_name" class="form-control" id="compnay_name" placeholder="Company Name" value="<?php echo $loggedInuser_info[0]['company_name'];?>" required>
                             </div>
                       </div>
                   </div>
@@ -152,13 +152,13 @@
                 </div>
                 <br>
 
-                <div class="row">
+                <div class="row"  <?php if($loggedInuser_info[0]['admin_role_id'] == 2){ echo "style='display:none;'";} ?> >
           
                     <div class="col-md-12">
                         <div class="form-group">
                           <label for="comstatus" class=" control-label">Status</label>
                           <select class="form-control select2 eg-select2" name="comstatus" id="comstatus" data-toggle="tooltip" placeholder="Status" required="true">
-                                <option value="open" >Open</option>
+                                <option value="open" <?php if($loggedInuser_info[0]['admin_role_id'] == 2){ echo "selected='true'";} ?> >Open</option>
                                 <option value="inprogress" >In Progress</option>
                                 <option value="resolved">Resolved</option>
                                 <option value="closed">Closed</option>
@@ -169,7 +169,7 @@
                             </select>
                         </div>
                     </div>
-                    </div>
+                  </div>
                   <div class="row"> 
                     <div class="col-md-12">
                         <div class="form-group">
@@ -360,7 +360,7 @@ jQuery("#loction").on("change", function () {
 
     jQuery.each(listofHQ.sublocation2, function (index, value) {
         var option = new Option(value, index, false, false);
-        console.log(option);
+      
         jQuery("#subloction2").append(option);
     });
 
@@ -391,7 +391,7 @@ jQuery("#loction").on("change", function () {
     });
       jQuery.each(listofHQ.sublocation2, function (index, value) {
         var option = new Option(value, index, false, false);
-        console.log(option);
+       
         jQuery("#subloction2").append(option);
     });
 

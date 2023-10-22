@@ -27,6 +27,12 @@ class Dashboard extends My_Controller {
 
 		$data['title'] = 'Dashboard';
 
+		$data['totalcompletedworkorders'] = $this->dashboard_model->get_all_completed_workorders();
+		$data['totalworkorders'] = $this->dashboard_model->get_all_workorders();
+
+		
+
+
 		$this->load->view('admin/includes/_header', $data);
 
     	$this->load->view('admin/dashboard/index');

@@ -42,7 +42,7 @@
                     <label for="lastname" class="col-md-12 control-label"><?= trans('lastname') ?></label>
 
                     <div class="col-md-12">
-                      <input type="text" name="lastname" class="form-control" id="lastname" placeholder=" required>
+                      <input type="text" name="lastname" class="form-control" id="lastname" placeholder="" required>
                     </div>
                   </div>
 

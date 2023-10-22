@@ -30,7 +30,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Total Work Orders</span>
                 <span class="info-box-number">
-                  5,023
+                  <?php echo number_format($totalworkorders,0);?>
                  
                 </span>
               </div>
@@ -45,7 +45,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Completed Work Orders</span>
-                <span class="info-box-number">3,201</span>
+                <span class="info-box-number"><?php echo number_format($totalcompletedworkorders,0);?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -63,7 +63,7 @@
         </div>
         <!-- /.row -->
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
@@ -77,7 +77,7 @@
                  
                 </div>
               </div>
-              <!-- /.card-header -->
+              
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
@@ -86,25 +86,25 @@
                     </p>
 
                     <div class="chart">
-                      <!-- Sales Chart Canvas -->
+                     
                       <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
                     </div>
-                    <!-- /.chart-responsive -->
-                  </div>
-                  <!-- /.col -->
                   
-                  <!-- /.col -->
+                  </div>
+                 
+                  
+              
                 </div>
-                <!-- /.row -->
+               
               </div>
-              <!-- ./card-body -->
+            
              
-              <!-- /.card-footer -->
+          
             </div>
-            <!-- /.card -->
+          
           </div>
-          <!-- /.col -->
-        </div>
+        
+        </div> -->
         <!-- /.row -->
 
         <!-- Main row -->

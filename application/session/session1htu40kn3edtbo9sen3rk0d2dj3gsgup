@@ -1,0 +1,7 @@
+__ci_last_regenerate|i:1697987483;form_data|a:7:{s:8:"username";s:0:"";s:9:"firstname";s:0:"";s:8:"lastname";s:0:"";s:5:"email";s:0:"";s:8:"password";s:0:"";s:16:"confirm_password";s:0:"";s:6:"submit";s:8:"Register";}__ci_vars|a:4:{s:9:"form_data";s:3:"old";s:6:"errors";s:3:"old";s:7:"success";s:3:"old";s:5:"error";s:3:"old";}errors|s:245:"<p>The Username field is required.</p>
+<p>The Firstname field is required.</p>
+<p>The Lastname field is required.</p>
+<p>The Email field is required.</p>
+<p>The Password field is required.</p>
+<p>The Password Confirmation field is required.</p>
+";success|s:100:"Your Account has been created successfully, Site Admin will be contact with you as soon as possible.";error|s:33:"Please verify your email address!";
